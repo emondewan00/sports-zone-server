@@ -33,6 +33,7 @@ mongoose
 app.use("/users", userHandler);
 app.use("/classes", classHandler);
 app.use("/selectedClasses", selectedClassHandler);
+app.use("/payments", paymentHandler);
 
 //root path
 app.get("/", (req, res) => {
