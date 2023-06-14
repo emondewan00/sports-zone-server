@@ -20,3 +20,14 @@ router.get("/", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch classes" });
   }
 });
+
+//get my classes
+router.get("/myClasses/:email", async (req, res) => {
+  const instructorEmail = req.params.email;
+  try {
+    const classes = await Class.find({instructorEmail});
+    res.status(200).json(classes);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch classes" });
+  }
+});
