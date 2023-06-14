@@ -38,7 +38,7 @@ router.get("/popular", async (req, res) => {
   const sort = req.query.sort === "desc" ? -1 : 0;
   const limit = +req.query.limit || 6;
   try {
-    const classes = await Class.find({})
+    const classes = await Class.find({ status: "aprove" })
       .sort({ totalStudent: sort })
       .limit(limit);
     res.status(200).json(classes);
