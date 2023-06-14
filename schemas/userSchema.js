@@ -29,7 +29,7 @@ const userSchema = mongoose.Schema({
   },
   role: {
     type: String,
-    default: "instructor",
+    default: "user",
   },
   myClasses: [
     {
