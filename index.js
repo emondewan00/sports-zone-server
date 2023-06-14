@@ -31,6 +31,7 @@ mongoose
 
 //route handler
 app.use("/users", userHandler);
+app.use("/classes", classHandler);
 
 //root path
 app.get("/", (req, res) => {
