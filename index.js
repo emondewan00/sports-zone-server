@@ -30,7 +30,7 @@ mongoose
   .catch((err) => console.log(err));
 
 //route handler
-
+app.use("/users", userHandler);
 
 //root path
 app.get("/", (req, res) => {
