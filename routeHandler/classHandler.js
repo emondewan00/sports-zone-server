@@ -31,3 +31,18 @@ router.get("/myClasses/:email", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch classes" });
   }
 });
+
+//get populer classes
+
+router.get("/popular", async (req, res) => {
+  const sort = req.query.sort === "desc" ? -1 : 0;
+  const limit = +req.query.limit || 6;
+  try {
+    const classes = await Class.find({})
+      .sort({ totalStudent: sort })
+      .limit(limit);
+    res.status(200).json(classes);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch classes" });
+  }
+});
